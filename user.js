@@ -1,5 +1,6 @@
 const { log } = require('console');
 const http=require('http');
+const fs=require('fs');
 
 const server = http.createServer((req, res)=>{
     console.log(req.url, req.method, req.headers);
@@ -29,22 +30,20 @@ const server = http.createServer((req, res)=>{
         res.write('</head>');
         return res.end();
     }
-    else if(req.url==='/products'){
-        res.setHeader('Content-Type', 'text/html');
-        res.write('<html>');
 
-        res.write('<head><title>Arpit Verma</title></head>');
-        res.write('<body><h1>Choose The Format</h1></body>');
-        
-        res.write('</head>');
-        return res.end();
-    }
+else if (req.url.toLowerCase() === '/submit-details' && req.method === 'POST') {
+    fs.writeFileSync('user.txt', 'Arpit Verma'); 
+    res.statusCode = 302;
+    res.setHeader('Location', '/');
+    return res.end();
+}
+
     else {
         res.setHeader('Content-Type', 'text/html');
         res.write('<html>');
 
         res.write('<head><title>Arpit Verma</title></head>');
-        res.write('<body><h1>Go Play Ludo</h1></body>');
+        res.write('<body><h1>Play Chess Again</h1></body>');
 
         res.write('</head>');
         return res.end();
