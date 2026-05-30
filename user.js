@@ -2,7 +2,7 @@ const { log } = require('console');
 const http=require('http');
 const fs=require('fs');
 
-const server = http.createServer((req, res)=>{
+const requestHandler = http.createServer((req, res)=>{
     console.log(req.url, req.method, req.headers);
     
     if(req.url==='/'){
@@ -60,20 +60,5 @@ else if (req.url.toLowerCase() === '/submit-details' && req.method === 'POST') {
     return res.end();
 }
 
-    else {
-        res.setHeader('Content-Type', 'text/html');
-        res.write('<html>');
-
-        res.write('<head><title>Arpit Verma</title></head>');
-        res.write('<body><h1>Play Chess Again</h1></body>');
-
-        res.write('</head>');
-        return res.end();
-    }
-
 });
-const PORT=3004;
-
-server.listen(PORT, ()=>{
-    console.log(`server running on adrs http://localhost:$(PORT)`);
-});
+module.exports = requestHandler;
