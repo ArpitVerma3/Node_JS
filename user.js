@@ -41,9 +41,20 @@ else if (req.url.toLowerCase() === '/submit-details' && req.method === 'POST') {
     });
     req.on('end', () => {
         const fullBody = Buffer.concat(body).toString();
-        console.log(fullBody); 
+        // console.log(fullBody); 
+
+        // const bodyObj={};
+        const params = new URLSearchParams(fullBody);
+        // for(const [key, val] of params.entries()){
+        //     bodyObj[key]=val;
+        // }
+        const bodyObj=Object.fromEntries(params);
+        console.log(bodyObj);
+
+        fs.writeFileSync('user.txt', JSON.stringify
+            (bodyObj)
+        );
     });
-    fs.writeFileSync('user.txt', 'Arpit Verma'); 
     res.statusCode = 302;
     res.setHeader('Location', '/');
     return res.end();
