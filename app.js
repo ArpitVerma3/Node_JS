@@ -6,7 +6,7 @@ const http=require('http');
 
 const server = http.createServer(userReqHandler);
 
-const PORT=3002;
+const PORT=3000;
 server.listen(PORT, ()=>{
     console.log(`server running on adrs http://localhost:$(PORT)`);
 });
