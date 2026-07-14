@@ -1,0 +1,26 @@
+{
+  "name": "npm-test",
+  "version": "1.0.0",
+  "description": "To Learn About NPM",
+  "homepage": "https://github.com/ArpitVerma3/https---github.com-ArpitVerma3-NodeJS#readme",
+  "bugs": {
+    "url": "https://github.com/ArpitVerma3/https---github.com-ArpitVerma3-NodeJS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArpitVerma3/https---github.com-ArpitVerma3-NodeJS.git"
+  },
+  "license": "ISC",
+  "author": "Arpit Verma",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
